@@ -1,0 +1,39 @@
+
+I'll build a full offline map app with multiple tile sources. Let me install the required packages and generate new icons first:
+
+Good. Now generating the map app icons while I build everything simultaneously:
+
+Now building the entire offline map app. Let me write all files in parallel:
+
+Now building the full map app. All files in parallel:
+
+Building the main map screen and all tabs now:
+
+Now writing the final layout files and restarting:
+
+Let me check the errors and restart:
+
+The crash is a missing dependency directory after package installation. Let me fix it:
+
+The web bundler can't handle react-native-maps imports even when guarded. I need to use platform-specific files to fix this:
+
+Let me fix the native map component (removed invalid FlatList.Item) and simplify the index screen:
+
+Both workflows running clean — Android bundled successfully with 1750 modules. Let me update the project docs:
+
+Both workflows are running clean. Here's what I built for your offline map app:
+
+Why these technology choices:
+
+react-native-maps (v1.18.0) — The only version compatible with Expo Go. Used UrlTile component so you can plug in any tile URL, giving you full control over the map source
+OpenStreetMap / ESRI / CartoDB tiles — All free, no API keys required. The OS automatically caches tiles as you browse, making visited areas available offline
+Nominatim API — Free geocoding from OpenStreetMap data, no signup needed
+Platform-specific .native.tsx file — Since react-native-maps crashes the web bundler, I split the map into a native-only file and a web fallback. Metro picks the right one automatically
+AsyncStorage — Saves your chosen tile source and all pinned locations locally
+Features included:
+
+Map tab — Full-screen map with 8 tile sources switchable live, search bar powered by Nominatim geocoding, tap to drop a pin, long-press to immediately save a place, GPS locate button, live coordinate display
+Places tab — List of all saved bookmarks with color-coded pins, tap any to fly the map to it, edit names/notes/colors, delete with confirmation
+Sources tab — Visual picker for all 8 map providers (OpenStreetMap, Topo, Carto Light/Dark, Watercolor, ESRI Street/Topo/Satellite) with offline caching info
+Scan the QR code in your Expo Go app to test it on your device — the map and tile switching work best on a real phone.
+check here :  mobile-choice-creator--gowthamgowtha52
